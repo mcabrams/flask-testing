@@ -465,7 +465,7 @@ class LiveServerTestCase(unittest.TestCase):
                 return ret
 
             socketserver.TCPServer.server_bind = socket_bind_wrapper
-            app.run(port=port, use_reloader=False)
+            app.run(host='0.0.0.0', port=port, use_reloader=False)
 
         self._process = multiprocessing.Process(
             target=worker, args=(self.app, self._configured_port)
